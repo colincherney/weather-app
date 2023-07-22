@@ -1,14 +1,25 @@
-const settings = {
-  async: true,
-  crossDomain: true,
-  url: "https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Scottsdale",
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "081943c2e2msh7f5fe2fac37b8f0p1ad24ajsn320412424565",
-    "X-RapidAPI-Host": "weather-by-api-ninjas.p.rapidapi.com",
-  },
-};
+let apiKey;
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
+function getApiKey() {
+  fetch("apikey.json")
+    .then((response) => response.json())
+    .then((json) => (apiKey = json.apikey))
+    .then(() => weather());
+}
+
+function weather() {
+  const settings = {
+    async: true,
+    crossDomain: true,
+    url: "https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Scottsdale",
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": apiKey,
+      "X-RapidAPI-Host": "weather-by-api-ninjas.p.rapidapi.com",
+    },
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+}
