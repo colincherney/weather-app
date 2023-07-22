@@ -4,10 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <input type="text" name="Enter Location" id="location" />
-    <button id="go">Go</button>
+    <div class="search">
+      <input type="text" name="Enter Location" id="input" />
+      <button id="go">Go</button>
+    </div>
+    <div class="weatherDisplay">
+      <h1 id="displayHeader">Current Weather in Scottsdale:</h1>
+      <h2 id="currentTemp">Temperature: 83</h2>
+      <h3 id="feelsLike">Feels Like: 81</h3>
+      <div class="containers">
+        <div class="container">
+          <h3>Max: 23</h3>
+          <h3>Min: 20</h3>
+          <h3 id="humidity">Humidity: 10</h3>
+        </div>
+        <div class="container">
+          <h3 id="windSpeed">Wind Speed: 10</h3>
+          <h3 id="windDirection">Wind Direction: NW</h3>
+        </div>
+        <div class="container">
+          <h3>Sunrise: 2:20</h3>
+          <h3>Sunset: 3:00</h3>
+        </div>
+      </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="script.js"></script>
   </body>
